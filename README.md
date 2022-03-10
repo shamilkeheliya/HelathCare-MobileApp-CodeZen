@@ -5,7 +5,7 @@
 - Project Type - **Mobile Application Development**
 - Subject - **PUSL2023**
 - Batch - **PLY Batch 09**
-- Year - **2021**
+- Year - **2022**
 - University - [**University of Plymouth**](https://www.plymouth.ac.uk/)
 - Partner University - [**NSBM Green University**](https://www.nsbm.ac.lk/)
 - Supervisor - **Mr. Iman Ashly** - [LinkedIn](https://www.linkedin.com/in/iman-ashly-18626b65/)
