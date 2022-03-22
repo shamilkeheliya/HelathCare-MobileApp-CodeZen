@@ -19,8 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UpdateProfile"></activity>
+        <activity android:name=".Profile" />
+        <activity android:name=".NewOrder" />
+        <activity android:name=".SingleOrderView" />
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".Login" />
+        <activity android:name=".Home" />
 
-        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>
