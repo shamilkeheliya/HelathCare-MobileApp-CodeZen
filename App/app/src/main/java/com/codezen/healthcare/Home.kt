@@ -11,29 +11,28 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_home.*
+
 
 data class  Test(
-        val test: String = "",
+    val test: String = "",
 )
 
 class  TestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-
-class MainActivity : AppCompatActivity() {
-
+class Home : AppCompatActivity() {
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
         val query = db.collection("test")
         val options = FirestoreRecyclerOptions.Builder<Test>().setQuery(query, Test::class.java)
-                .setLifecycleOwner(this).build()
+            .setLifecycleOwner(this).build()
         val adapter = object: FirestoreRecyclerAdapter<Test, TestViewHolder>(options){
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
-                val view = LayoutInflater.from(this@MainActivity).inflate(android.R.layout.simple_list_item_2, parent, false)
+                val view = LayoutInflater.from(this@Home).inflate(android.R.layout.simple_list_item_2, parent, false)
                 return TestViewHolder(view)
             }
 
