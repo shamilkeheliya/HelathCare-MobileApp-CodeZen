@@ -1,14 +1,20 @@
 package com.codezen.healthcare
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_create_account.*
 
 
 class CreateAccount : AppCompatActivity() {
+
+    private lateinit var  auth: FirebaseAuth
+
 
     lateinit var etFirstName: EditText
     lateinit var etEmail: EditText
@@ -21,6 +27,7 @@ class CreateAccount : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
+        auth= FirebaseAuth.getInstance()
 
         viewInitializations()
     }
@@ -32,6 +39,8 @@ class CreateAccount : AppCompatActivity() {
         etRepeatPassword = findViewById(R.id.et_repeat_password)
         etAddress = findViewById(R.id.et_address)
         etPhoneNumber=findViewById(R.id.et_phone)
+
+
 
         // To show back button in actionbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -93,7 +102,7 @@ class CreateAccount : AppCompatActivity() {
 
     // Hook Click Event
 
-    fun performSignUp (view: View) {
+    fun register (view: View) {
         if (validateInput()) {
 
             // Input is valid, here send data to server
@@ -102,14 +111,25 @@ class CreateAccount : AppCompatActivity() {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             val repeatPassword = etRepeatPassword.text.toString()
-            val address=etAddress.text.toString()
+            val address = etAddress.text.toString()
             val phone = etPhoneNumber.text.toString()
 
-
-            Toast.makeText(this,"Login Success", Toast.LENGTH_SHORT).show()
-            // call the API
-
+            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(this, NewOrder::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }.addOnFailureListener { exception ->
+                Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG)
+                    .show()
+            }
         }
+
     }
 
+    fun goToLogin(view: View) {
+        val intent= Intent(this,Login::class.java)
+        startActivity(intent)
+    }
 }
