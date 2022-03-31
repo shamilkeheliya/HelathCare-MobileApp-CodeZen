@@ -17,7 +17,7 @@ class LoadingScreen : AppCompatActivity() {
         setContentView(R.layout.activity_loading_screen)
 
         Handler().postDelayed({
-            startActivity(Intent(this, Home::class.java))
+            startActivity(Intent(this, Login::class.java))
             finish()
         }, SPLASH_TIME_OUT)
     }

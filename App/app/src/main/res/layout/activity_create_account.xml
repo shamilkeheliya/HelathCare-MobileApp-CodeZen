@@ -31,7 +31,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="8dp"
                     android:text="Register Now"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/main_color" />
 
                 <ImageView
                     android:layout_width="115dp"
@@ -165,10 +165,10 @@
                     <Button
                         android:id="@+id/button"
                         android:layout_width="142dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:onClick="register"
                         android:backgroundTint="@color/main_color"
+                        android:onClick="register"
                         android:text="Register" />
 
 
@@ -191,7 +191,7 @@
                             android:layout_marginLeft="60dp"
                             android:layout_weight="1"
                             android:text="Do you have an account?"
-                            android:textColor="@color/black"
+                            android:textColor="@color/main_color"
                             android:textSize="18sp" />
 
                         <TextView
@@ -199,14 +199,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2.6"
-                            android:text="Login"
                             android:onClick="goToLogin"
-                            android:textColor="@color/black"
+                            android:text="Login"
+                            android:textColor="@color/main_color"
                             android:textSize="18sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
-/>
+                    />
 
 
                 </LinearLayout>

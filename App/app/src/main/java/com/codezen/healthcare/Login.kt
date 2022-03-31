@@ -16,7 +16,12 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         title="Login"
         auth= FirebaseAuth.getInstance()
+
+        try {
+            this.supportActionBar!!.hide()
+        } catch (e: NullPointerException) {}
     }
+
     fun login(view: View){
         val email=editTextEmail.text.toString()
         val password=editTextPassword.text.toString()

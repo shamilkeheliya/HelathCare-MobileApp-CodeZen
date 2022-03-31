@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 data class  Test(
     val test: String = "",
+    val name: String = "",
 )
 
 class  TestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -40,7 +41,7 @@ class Home : AppCompatActivity() {
                 val tvName: TextView = holder.itemView.findViewById(android.R.id.text1)
                 val tvEmojies: TextView = holder.itemView.findViewById(android.R.id.text2)
                 tvName.text = model.test
-                tvEmojies.text = model.test
+                tvEmojies.text = model.name
             }
         }
         rvTest.adapter = adapter

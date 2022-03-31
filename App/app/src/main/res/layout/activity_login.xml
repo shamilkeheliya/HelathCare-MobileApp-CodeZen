@@ -38,7 +38,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="LOGIN"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/main_color" />
 
                 <ImageView
                     android:layout_width="157dp"
@@ -85,12 +85,11 @@
             <Button
                 android:id="@+id/button"
                 android:layout_width="142dp"
-                android:layout_height="36dp"
-                android:onClick="login"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/main_color"
-                android:text="Login"
-                />
+                android:onClick="login"
+                android:text="Login" />
             <TextView
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"

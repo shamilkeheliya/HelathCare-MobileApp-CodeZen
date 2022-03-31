@@ -30,6 +30,10 @@ class CreateAccount : AppCompatActivity() {
         auth= FirebaseAuth.getInstance()
 
         viewInitializations()
+
+        try {
+            this.supportActionBar!!.hide()
+        } catch (e: NullPointerException) {}
     }
 
     fun viewInitializations() {
