@@ -1,5 +1,6 @@
 package com.codezen.healthcare
 
+import android.app.DownloadManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.DateTime
 import kotlinx.android.synthetic.main.activity_orders.*
 
 data class Order(
@@ -28,7 +31,7 @@ class Orders : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
 
-        val query = db.collection("orders")
+        val query = db.collection("orders").orderBy("datetime", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Order>().setQuery(query, Order::class.java)
             .setLifecycleOwner(this).build()
         val adapter = object : FirestoreRecyclerAdapter<Order, OrderViewHolder>(options){

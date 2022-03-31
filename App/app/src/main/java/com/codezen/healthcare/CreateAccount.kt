@@ -120,7 +120,7 @@ class CreateAccount : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, NewOrder::class.java)
+                    val intent = Intent(this, Orders::class.java)
                     startActivity(intent)
                     finish()
                 }
