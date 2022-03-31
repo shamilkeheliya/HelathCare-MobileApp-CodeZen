@@ -14,6 +14,7 @@
 
         <activity
             android:name=".LoadingScreen"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,27 +24,32 @@
         </activity>
         <activity
             android:name=".UpdateProfile"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Profile"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".NewOrder"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SingleOrderView"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".CreateAccount"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Login"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".Home"
-            android:exported="true" />
-        <activity android:name=".Orders"
-            android:exported="true" />
+            android:name=".Orders"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
