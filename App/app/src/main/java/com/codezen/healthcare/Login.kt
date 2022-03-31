@@ -35,6 +35,7 @@ class Login : AppCompatActivity() {
             Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
         }
     }
+
     fun goToRegister(view: View){
         val intent= Intent(this,CreateAccount::class.java)
         startActivity(intent)

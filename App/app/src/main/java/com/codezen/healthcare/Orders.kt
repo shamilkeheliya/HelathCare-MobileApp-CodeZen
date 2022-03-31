@@ -1,6 +1,7 @@
 package com.codezen.healthcare
 
 import android.app.DownloadManager
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,5 +50,10 @@ class Orders : AppCompatActivity() {
         }
         rvOrders.adapter = adapter
         rvOrders.layoutManager = LinearLayoutManager(this)
+    }
+
+    fun addNewOrder(view: View){
+        startActivity(Intent(this, NewOrder::class.java))
+        finish()
     }
 }
