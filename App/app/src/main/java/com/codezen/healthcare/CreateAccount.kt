@@ -1,14 +1,15 @@
 package com.codezen.healthcare
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_create_account.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class CreateAccount : AppCompatActivity() {
@@ -106,7 +107,7 @@ class CreateAccount : AppCompatActivity() {
 
     // Hook Click Event
 
-    fun register (view: View) {
+    fun register(view: View) {
         if (validateInput()) {
 
             // Input is valid, here send data to server
@@ -120,9 +121,21 @@ class CreateAccount : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, Orders::class.java)
-                    startActivity(intent)
-                    finish()
+                    val uid = auth.currentUser!!.uid
+
+                    val user = hashMapOf(
+                        "name" to firstName,
+                        "email" to email,
+                        "address" to address,
+                        "mobile" to phone,
+                    )
+
+                    Firebase.firestore.collection("users").document(uid).set(user).addOnSuccessListener {
+                        val intent = Intent(this, Orders::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+
                 }
             }.addOnFailureListener { exception ->
                 Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG)
@@ -133,7 +146,7 @@ class CreateAccount : AppCompatActivity() {
     }
 
     fun goToLogin(view: View) {
-        val intent= Intent(this,Login::class.java)
+        val intent= Intent(this, Login::class.java)
         startActivity(intent)
     }
 }
