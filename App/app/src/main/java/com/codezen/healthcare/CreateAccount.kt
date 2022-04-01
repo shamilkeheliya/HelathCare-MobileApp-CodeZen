@@ -149,4 +149,9 @@ class CreateAccount : AppCompatActivity() {
         startActivity(Intent(this, Login::class.java))
         finish()
     }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, Login::class.java))
+        finish()
+    }
 }
