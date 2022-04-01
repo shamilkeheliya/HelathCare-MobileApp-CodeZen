@@ -25,7 +25,7 @@ class ForgetPassword : AppCompatActivity() {
     fun sendPasswordResetEmail(view: View){
         etEmail = findViewById(R.id.et_Email)
         var email = etEmail.text.toString()
-        
+
         if (etEmail.text.toString().equals("")) {
             etEmail.setError("Please Enter Email")
         }
