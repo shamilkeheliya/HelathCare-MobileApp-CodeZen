@@ -169,7 +169,10 @@
                     android:onClick="register"
                     android:text="Register" />
 
-
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputPasswordd"
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin"/>
 
                 <LinearLayout
                     android:id="@+id/linearLayout"

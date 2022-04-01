@@ -83,6 +83,11 @@
                 android:textColor="@color/main_color"
                 android:textSize="@dimen/newsMoreTextSize" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputPasswordd"
+                style="@style/parent"
+                android:layout_marginTop="@dimen/loginViewsMargin"/>
+
             <Button
                 android:id="@+id/button"
                 android:layout_width="142dp"
@@ -91,6 +96,12 @@
                 android:backgroundTint="@color/main_color"
                 android:onClick="login"
                 android:text="Login" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputPassworddd"
+                style="@style/parent"
+                android:layout_marginTop="@dimen/loginViewsMargin"/>
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="366dp"
