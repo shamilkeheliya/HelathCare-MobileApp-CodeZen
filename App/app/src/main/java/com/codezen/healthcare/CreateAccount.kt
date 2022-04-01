@@ -39,7 +39,7 @@ class CreateAccount : AppCompatActivity() {
 
     fun viewInitializations() {
         etFirstName = findViewById(R.id.et_first_name)
-        etEmail = findViewById(R.id.et_email)
+        etEmail = findViewById(R.id.et_Email)
         etPassword = findViewById(R.id.et_password)
         etRepeatPassword = findViewById(R.id.et_repeat_password)
         etAddress = findViewById(R.id.et_address)
