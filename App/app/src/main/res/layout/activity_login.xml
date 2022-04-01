@@ -117,7 +117,7 @@
                 android:id="@+id/textViewLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2.6"
+                android:layout_weight="2.1"
                 android:onClick="goToRegister"
                 android:text="Register"
                 android:textColor="@color/black"
