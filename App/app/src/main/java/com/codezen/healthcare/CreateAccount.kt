@@ -146,7 +146,7 @@ class CreateAccount : AppCompatActivity() {
     }
 
     fun goToLogin(view: View) {
-        val intent= Intent(this, Login::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, Login::class.java))
+        finish()
     }
 }

@@ -37,7 +37,12 @@ class Login : AppCompatActivity() {
     }
 
     fun goToRegister(view: View){
-        val intent= Intent(this,CreateAccount::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, CreateAccount::class.java))
+        finish()
+    }
+
+    fun goToForgetPassword(view: View){
+        startActivity(Intent(this, ForgetPassword::class.java))
+        finish()
     }
 }
