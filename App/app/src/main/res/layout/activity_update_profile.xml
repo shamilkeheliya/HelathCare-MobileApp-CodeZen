@@ -4,6 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7FB639"
     tools:context=".UpdateProfile">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="234dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="83dp"
+        android:fontFamily="sans-serif-black"
+        android:text=" Update Profile"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <view
+        android:id="@+id/view"
+        class="com.google.android.material.circularreveal.cardview.CircularRevealCardView"
+        android:layout_width="413dp"
+        android:layout_height="532dp"
+        app:cardCornerRadius="30dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="215dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
