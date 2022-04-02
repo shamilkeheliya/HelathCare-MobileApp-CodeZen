@@ -26,11 +26,11 @@
     <view
         android:id="@+id/view"
         class="com.google.android.material.circularreveal.cardview.CircularRevealCardView"
-        android:layout_width="413dp"
-        android:layout_height="532dp"
+        android:layout_width="415dp"
+        android:layout_height="551dp"
         app:cardCornerRadius="30dp"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="215dp" />
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="200dp" />
 
     <Button
         android:id="@+id/button2"
