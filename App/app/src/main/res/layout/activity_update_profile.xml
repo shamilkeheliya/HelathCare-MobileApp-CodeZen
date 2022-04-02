@@ -31,4 +31,15 @@
         app:cardCornerRadius="30dp"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="215dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="136dp"
+        android:layout_height="54dp"
+        android:text=" Confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="637dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
