@@ -26,6 +26,7 @@
     <view
         android:id="@+id/view"
         class="com.google.android.material.circularreveal.cardview.CircularRevealCardView"
+<<<<<<< HEAD
         android:layout_width="415dp"
         android:layout_height="551dp"
         app:cardCornerRadius="30dp"
@@ -41,5 +42,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="637dp" />
+=======
+        android:layout_width="413dp"
+        android:layout_height="532dp"
+        android:layout_marginTop="90dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp" />
+>>>>>>> d17f87349b9dc1737fb46d3ead58f9d350600cca
 
 </androidx.constraintlayout.widget.ConstraintLayout>
