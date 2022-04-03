@@ -45,11 +45,15 @@
 =======
         android:layout_width="413dp"
         android:layout_height="532dp"
-        android:layout_marginTop="90dp"
         app:cardCornerRadius="30dp"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-1dp" />
 >>>>>>> d17f87349b9dc1737fb46d3ead58f9d350600cca
 
+=======
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="215dp" />
+>>>>>>> 6fe8a84d5fc2698c04af0a2b2807cb87832b1298
 </androidx.constraintlayout.widget.ConstraintLayout>
