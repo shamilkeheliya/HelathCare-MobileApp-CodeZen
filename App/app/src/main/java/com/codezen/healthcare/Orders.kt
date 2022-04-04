@@ -1,7 +1,10 @@
 package com.codezen.healthcare
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,12 +48,34 @@ class Orders : AppCompatActivity() {
                 tvStatus.text = model.status
                 tvDate.text = model.date
 
+                tvDate.setTextColor(Color.parseColor("#000000"))
+                tvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
+
+                tvStatus.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+                tvStatus.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F)
+
+
+                if(model.status == "Pending"){
+                    tvStatus.setTextColor(Color.parseColor("#dbba00"))
+                }
+                else if(model.status == "Packing"){
+                    tvStatus.setTextColor(Color.parseColor("#ffaa00"))
+                }
+                else if(model.status == "Delivering"){
+                    tvStatus.setTextColor(Color.parseColor("#0091ff"))
+                }
+                else if(model.status == "Done"){
+                    tvStatus.setTextColor(Color.parseColor("#00ff00"))
+                }
+                else {
+                    tvStatus.setTextColor(Color.parseColor("#ff0000"))
+                }
+
                 val documentId = snapshots.getSnapshot(position).id
 
                 holder.itemView.setOnClickListener{
-                    changePageToSingleOrderView(documentId.toString())
+                    changePageToSingleOrderView(documentId)
                 }
-
             }
         }
 
