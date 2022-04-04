@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#7FB639"
-    tools:context=".UpdateProfile">
+    tools:context=".UpdateProfile"
+    android:backgroundTint="#7FB639">
 
     <TextView
         android:id="@+id/textView3"
@@ -26,34 +27,92 @@
     <view
         android:id="@+id/view"
         class="com.google.android.material.circularreveal.cardview.CircularRevealCardView"
-<<<<<<< HEAD
-        android:layout_width="415dp"
-        android:layout_height="551dp"
-        app:cardCornerRadius="30dp"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="200dp" />
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
 
     <Button
         android:id="@+id/button2"
         android:layout_width="136dp"
         android:layout_height="54dp"
+        android:backgroundTint="#FFFFFFFF"
+        android:outlineProvider="background"
         android:text=" Confirm"
+        android:textColor="#120D0D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="637dp" />
-=======
-        android:layout_width="413dp"
-        android:layout_height="532dp"
-        app:cardCornerRadius="30dp"
-<<<<<<< HEAD
+        app:strokeColor="#130C0C"
+        tools:layout_editor_absoluteY="637dp"
+        tools:visibility="visible" />
+    =======
+    android:layout_width="413dp"
+    android:layout_height="532dp"
+    app:cardCornerRadius="30dp"
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
+
+    < HEAD
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-1dp" />
->>>>>>> d17f87349b9dc1737fb46d3ead58f9d350600cca
 
-=======
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="215dp" />
->>>>>>> 6fe8a84d5fc2698c04af0a2b2807cb87832b1298
+    <LinearLayout
+        android:layout_width="363dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FDFDFB"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="213dp"></LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="189dp"
+        android:layout_height="31dp"
+        android:text=" Name"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="177dp"
+        android:layout_height="35dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="292dp" /><![CDATA[
+
+
+
+
+
+    >>>>>>> d17f87349b9dc1737fb46d3ead58f9d350600cca
+
+    =======
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="215dp" />
+    >>>>>>> 6fe8a84d5fc2698c04af0a2b2807cb87832b1298
+
+
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>
