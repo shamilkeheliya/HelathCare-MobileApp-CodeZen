@@ -1,4 +1,4 @@
-#  Health Care Pharmacy MobileApp - CodeZen(Group Project)
+#  Health Care Pharmacy MobileApp
 
 ## Project Details
 - Group Name - **Code Zen**
