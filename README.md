@@ -1,4 +1,4 @@
-# Helath Care MobileApp - CodeZen(Group Project)
+#  Health Care Pharmacy MobileApp - CodeZen(Group Project)
 
 ## Project Details
 - Group Name - **Code Zen**
