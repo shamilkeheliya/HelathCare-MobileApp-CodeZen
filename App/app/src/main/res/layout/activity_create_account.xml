@@ -54,7 +54,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_first_name"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_first_name"
@@ -71,7 +71,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_email"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_Email"
@@ -90,7 +90,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_password"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_password"
@@ -108,7 +108,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_repeat_password"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_repeat_password"
@@ -125,7 +125,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_address"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_address"
@@ -142,7 +142,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_phone"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
                         android:id="@+id/et_phone"
@@ -158,7 +158,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputPassword"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin"/>
+                    android:layout_marginTop="@dimen/viewsMargin"/>
 
                 <Button
                     android:id="@+id/button"
@@ -172,7 +172,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputPasswordd"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/loginViewsMargin"/>
+                    android:layout_marginTop="@dimen/viewsMargin"/>
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
