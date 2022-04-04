@@ -1,157 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#7FB639"
-    tools:context=".UpdateProfile"
-    android:backgroundTint="#7FB639">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        tools:context=".UpdateProfile">
 
-    <LinearLayout
-        android:layout_width="327dp"
-        android:layout_height="44dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FDFDFB"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="217dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="234dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="83dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="83dp"
-        android:fontFamily="sans-serif-black"
-        android:text=" Update Profile"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp">
 
-    <view
-        android:id="@+id/view"
-        class="com.google.android.material.circularreveal.cardview.CircularRevealCardView"
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="Update Profile"
+                    android:textColor="@color/main_color" />
 
-    <
+                <ImageView
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="-6dp"
+                    android:src="@mipmap/ic_launcher_round" />
+            </RelativeLayout>
 
-    <
-
-    <
-
-    <
-
-    <
-
-    <
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="136dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#FFFFFFFF"
-        android:outlineProvider="background"
-        android:text=" Confirm"
-        android:textColor="#120D0D"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#130C0C"
-        tools:layout_editor_absoluteY="637dp"
-        tools:visibility="visible" />
-    =======
-    android:layout_width="413dp"
-    android:layout_height="532dp"
-    app:cardCornerRadius="30dp"
-
-    <
-
-    <
-
-    <
-
-    <
-
-    <
-
-    <
-
-    < HEAD
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp" />
-
-    <LinearLayout
-        android:layout_width="327dp"
-        android:layout_height="44dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FDFDFB"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="351dp"></LinearLayout>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="189dp"
-        android:layout_height="31dp"
-        android:fontFamily="sans-serif-medium"
-        android:text=" Name"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="171dp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="189dp"
-        android:layout_height="31dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Contact Number"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="290dp" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="189dp"
-        android:layout_height="31dp"
-        android:fontFamily="sans-serif-medium"
-        android:text=" Address"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="432dp" />
-
-    <LinearLayout
-        android:layout_width="327dp"
-        android:layout_height="44dp"
-        android:background="#FAF7F7"
-        android:backgroundTint="#FFFFFF"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="489dp"></LinearLayout><![CDATA[
+            <LinearLayout
+                android:layout_width="352dp"
+                android:layout_height="620dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_first_name"
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin">
+
+                    <EditText
+                        android:id="@+id/et_first_name"
+                        style="@style/modifiedEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_address"
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin">
+
+                    <EditText
+                        android:id="@+id/et_address"
+                        style="@style/modifiedEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Address"
+                        android:inputType="textPersonName"
+                        android:maxLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_phone"
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin">
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        style="@style/modifiedEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Mobile Number"
+
+                        android:inputType="phone"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text"
+                    style="@style/parent"
+                    android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="182dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/main_color"
+                    android:text="CONFIRM" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:weightSum="12">
+            </LinearLayout>
 
 
+        </LinearLayout>
+    </ScrollView>
 
-    >>>>>>> d17f87349b9dc1737fb46d3ead58f9d350600cca
-
-    =======
-    tools:layout_editor_absoluteX="-1dp"
-    tools:layout_editor_absoluteY="215dp" />
-    >>>>>>> 6fe8a84d5fc2698c04af0a2b2807cb87832b1298
-
-
-
-
-]]>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
