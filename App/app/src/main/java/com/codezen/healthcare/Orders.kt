@@ -5,10 +5,9 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -81,6 +80,21 @@ class Orders : AppCompatActivity() {
 
         rvOrders.adapter = adapter
         rvOrders.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.nav_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.button_profile){
+            startActivity(Intent(this, Profile::class.java))
+            finish()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     fun changePageToSingleOrderView(docID: String){
