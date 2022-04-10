@@ -19,10 +19,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="205dp"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Order"
+                android:textColor="@color/black" />
+                <ImageView
+                    android:layout_width="157dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_launcher_round" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:background="@drawable/container">
 
                 <TextView
@@ -32,7 +51,8 @@
                     android:layout_marginLeft="0dp"
                     android:layout_marginEnd="74dp"
                     android:text="Date"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -50,21 +70,23 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="200dp"
+                    android:layout_marginTop="50dp"
                     android:layout_toEndOf="@id/textView1"
                     android:text="Time"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="205dp"
                     android:layout_height="50dp"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginTop="50dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="200dp"
                     android:layout_toRightOf="@id/textView2"
                     android:text="Ordered"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
 
             </RelativeLayout>
 
