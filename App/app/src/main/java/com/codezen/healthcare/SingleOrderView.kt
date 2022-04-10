@@ -32,6 +32,7 @@ class SingleOrderView : AppCompatActivity() {
             txt_date.text = it.data!!.getValue("date").toString()
             txt_time.text = it.data!!.getValue("time").toString()
             txt_status.text = it.data!!.getValue("status").toString()
+
             changeColor()
 
         }.addOnFailureListener{
