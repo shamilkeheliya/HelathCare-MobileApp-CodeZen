@@ -47,6 +47,7 @@ class SingleOrderView : AppCompatActivity() {
             txt_time.text = it.data!!.getValue("time").toString()
             txt_status.text = it.data!!.getValue("status").toString()
             txt_description.text = it.data!!.getValue("description").toString()
+            txt_amount.text = it.data!!.getValue("amount").toString()
 
             checkStatus()
             descriptionVisibility()
@@ -86,7 +87,8 @@ class SingleOrderView : AppCompatActivity() {
         if(orderStatus == "Pending"){
             txt_status.setTextColor(Color.parseColor("#dbba00"))
             lbl_amount.setVisibility(View.GONE)
-            txt_Amount.setVisibility(View.GONE)
+            lbl_rs.setVisibility(View.GONE)
+            txt_amount.setVisibility(View.GONE)
         }
         else if(orderStatus == "Packing"){
             txt_status.setTextColor(Color.parseColor("#ffaa00"))
@@ -103,6 +105,9 @@ class SingleOrderView : AppCompatActivity() {
         else {
             txt_status.setTextColor(Color.parseColor("#ff0000"))
             buttonDeleteOrder.setVisibility(View.GONE)
+            lbl_amount.setVisibility(View.GONE)
+            lbl_rs.setVisibility(View.GONE)
+            txt_amount.setVisibility(View.GONE)
         }
     }
 
