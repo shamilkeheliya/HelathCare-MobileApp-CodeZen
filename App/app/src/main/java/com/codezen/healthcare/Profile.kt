@@ -17,12 +17,6 @@ import kotlinx.android.synthetic.main.activity_profile.*
 
 class Profile : AppCompatActivity() {
 
-
-    lateinit var etName: EditText
-    lateinit var etAddress: EditText
-    lateinit var etPhoneNumber: EditText
-    lateinit var etEmail: EditText
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,16 +26,12 @@ class Profile : AppCompatActivity() {
 
         setContentView(R.layout.activity_profile)
 
-        etName = findViewById(R.id.et_name)
-        etAddress = findViewById(R.id.et_address)
-        etPhoneNumber = findViewById(R.id.et_phone)
-        etEmail = findViewById(R.id.et_Email)
-
         FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
-            et_name.setText(it.data!!.getValue("name").toString())
-            et_address.setText(it.data!!.getValue("address").toString())
-            et_phone.setText(it.data!!.getValue("mobile").toString())
-            et_Email.setText(it.data!!.getValue("email").toString())
+
+            txt_name.text = it.data!!.getValue("name").toString()
+            txt_email.text = it.data!!.getValue("email").toString()
+            txt_phone.text = it.data!!.getValue("mobile").toString()
+            txt_address.text = it.data!!.getValue("address").toString()
 
         }.addOnFailureListener{
             Toast.makeText(applicationContext,"Cannot Get Data from Server", Toast.LENGTH_LONG).show()
