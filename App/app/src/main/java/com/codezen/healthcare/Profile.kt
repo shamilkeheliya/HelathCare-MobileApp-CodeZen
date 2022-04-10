@@ -52,47 +52,7 @@ class Profile : AppCompatActivity() {
 
     }
 
-    fun validate():Boolean{
-        if (etName.text.toString().equals("")) {
-            etName.setError("Name Cannot be Empty")
-            return false
-        }else if (etAddress.text.toString().equals("")) {
-            etAddress.setError("Address Cannot be Empty")
-            return false
-        }else if (etPhoneNumber.text.toString().equals("")) {
-            etPhoneNumber.setError("Phone Number Cannot be Empty")
-            return false
-        }else if (etEmail.text.toString().equals("")) {
-            etEmail.setError("Email Cannot be Empty")
-            return false
-        }else{
-            return true
-        }
-    }
 
-    fun updateUserData(view: View){
-        if(validate()){
-            val name = etName.text.toString()
-            val address = etAddress.text.toString()
-            val mobile = etPhoneNumber.text.toString()
-            val email = etEmail.text.toString()
-
-            val user = hashMapOf(
-                    "name" to name,
-                    "address" to address,
-                    "mobile" to mobile,
-                    "email" to FirebaseAuth.getInstance().currentUser!!.email
-            )
-
-            Firebase.firestore.collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid).set(user).addOnSuccessListener {
-                Toast.makeText(applicationContext,"Updated Successful", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, Profile::class.java))
-                finish()
-            }.addOnFailureListener{
-                Toast.makeText(applicationContext,"Cannot Update", Toast.LENGTH_LONG).show()
-            }
-        }
-    }
     override fun onBackPressed() {
         super.onBackPressed()
         startActivity(Intent(this, Orders::class.java))
