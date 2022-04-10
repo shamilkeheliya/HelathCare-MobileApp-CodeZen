@@ -3,11 +3,11 @@ package com.codezen.healthcare
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.*
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +31,11 @@ class Orders : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
+
+        try {
+            this.supportActionBar!!.setBackgroundDrawable(ColorDrawable(getResources()
+                .getColor(R.color.main_color)))
+        } catch (e: NullPointerException) {}
 
         val query = db.collection("orders").orderBy("datetime", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Order>().setQuery(query, Order::class.java)
