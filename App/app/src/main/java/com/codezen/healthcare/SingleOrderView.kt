@@ -1,10 +1,16 @@
 package com.codezen.healthcare
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -17,6 +23,7 @@ class SingleOrderView : AppCompatActivity() {
     lateinit var documentID : String
     lateinit var orderStatus : String
     lateinit var decription : String
+    lateinit var prescriptionURL : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +41,7 @@ class SingleOrderView : AppCompatActivity() {
 
             orderStatus = it.data!!.getValue("status").toString()
             decription = it.data!!.getValue("description").toString()
+            prescriptionURL = it.data!!.getValue("prescription").toString()
 
             txt_date.text = it.data!!.getValue("date").toString()
             txt_time.text = it.data!!.getValue("time").toString()
@@ -43,8 +51,34 @@ class SingleOrderView : AppCompatActivity() {
             checkStatus()
             descriptionVisibility()
 
+            DownloadImageFromInternet(findViewById(R.id.pescriptionImage)).execute(prescriptionURL)
+
         }.addOnFailureListener{
             Toast.makeText(applicationContext,"Cannot Get Data from Server", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    @Suppress("DEPRECATION")
+    private inner class DownloadImageFromInternet(var imageView: ImageView) : AsyncTask<String, Void, Bitmap?>() {
+        init {
+            Toast.makeText(applicationContext, "Prescription Loading...", Toast.LENGTH_SHORT).show()
+        }
+        override fun doInBackground(vararg urls: String): Bitmap? {
+            val imageURL = urls[0]
+            var image: Bitmap? = null
+            try {
+                val `in` = java.net.URL(imageURL).openStream()
+                image = BitmapFactory.decodeStream(`in`)
+            }
+            catch (e: Exception) {
+                Toast.makeText(applicationContext, "Cannot load the Prescription", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
+            }
+            return image
+        }
+        override fun onPostExecute(result: Bitmap?) {
+            imageView.setImageBitmap(result)
         }
     }
 
