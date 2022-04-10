@@ -1,9 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".Profile">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="2dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp">
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="Profile"
+                    android:textColor="@color/main_color" />
+
+                <ImageView
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="-6dp"
+                    android:src="@mipmap/ic_launcher_round" />
+            </RelativeLayout>
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Name"
+                android:textColor="@color/main_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_name"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="205dp"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Loading..."
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/viewsMargin"
+                android:text="Email"
+                android:textColor="@color/main_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_email"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="205dp"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Loading..."
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/viewsMargin"
+                android:text="Phone Number"
+                android:textColor="@color/main_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_phone"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="205dp"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Loading..."
+                android:textColor="@color/black" />
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/viewsMargin"
+                android:text="Address"
+                android:textColor="@color/main_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_address"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Loading..."
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="215dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/main_color"
+                android:onClick="goToUpdateProfile"
+                android:text="Update Profile" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="3"
+        android:background="@color/main_color" />
+
+</RelativeLayout>
