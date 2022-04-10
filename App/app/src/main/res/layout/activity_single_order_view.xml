@@ -137,7 +137,103 @@
                 android:text="Loading.."
                 android:textSize="20sp"
                 android:textColor="@color/black" />
-            
+
+            <TextView
+                android:id="@+id/lbl_amount"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Amount"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_Amount"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentLeft="true"
+                android:text="Rs. 2350.00"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/lbl_paymentMethod"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Payment Method"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="#E5E5E5"
+                android:layout_marginTop="10dp">
+
+                <RadioButton
+                    android:id="@+id/radioBtn1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/txt_COD"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_toRightOf="@+id/radioBtn1"
+                    android:text="Cash On Delivery"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/radioBtn2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/radioBtn1"/>
+
+                <TextView
+                    android:id="@+id/txt_paypal"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_toRightOf="@+id/radioBtn1"
+                    android:text="Cash On Delivery"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/txt_COD"/>
+
+                <RadioButton
+                    android:id="@+id/radioBtn3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/radioBtn2"/>
+
+                <TextView
+                    android:id="@+id/txt_creditCard"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_toRightOf="@+id/radioBtn1"
+                    android:text="Cash On Delivery"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/txt_paypal"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonDeleteOrder"
+                android:layout_width="142dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/main_color"
+                android:text="Delete Order" />
 
         </LinearLayout>
     </ScrollView>
