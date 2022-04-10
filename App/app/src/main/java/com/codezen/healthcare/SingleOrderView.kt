@@ -73,7 +73,7 @@ class SingleOrderView : AppCompatActivity() {
     }
 
     fun descriptionVisibility(){
-        if(decription==""){
+        if(decription == "" || decription == null){
             txt_description.setVisibility(View.GONE)
             lbl_description.setVisibility(View.GONE)
         }
