@@ -17,7 +17,7 @@ class SingleOrderView : AppCompatActivity() {
 
 
         // Example
-        textView4.text = documentID
+        textView2.text = documentID
     }
 
     override fun onBackPressed() {
