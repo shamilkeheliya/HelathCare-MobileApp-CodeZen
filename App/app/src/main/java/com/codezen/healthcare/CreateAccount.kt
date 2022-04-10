@@ -130,8 +130,7 @@ class CreateAccount : AppCompatActivity() {
                     )
 
                     Firebase.firestore.collection("users").document(uid).set(user).addOnSuccessListener {
-                        val intent = Intent(this, Orders::class.java)
-                        startActivity(intent)
+                        startActivity(Intent(this, Orders::class.java))
                         finish()
                     }
 
