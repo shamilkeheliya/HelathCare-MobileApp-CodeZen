@@ -124,6 +124,11 @@
                     android:text="Credit/Debit Card"
                     android:layout_toRightOf="@+id/radioBtn2"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="hdfgh"/>
+
             </RelativeLayout>
 
         </LinearLayout>
