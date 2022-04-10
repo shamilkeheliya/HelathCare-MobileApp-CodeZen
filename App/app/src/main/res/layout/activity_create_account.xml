@@ -52,12 +52,12 @@
                 //name
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_first_name"
+                    android:id="@+id/layout_name"
                     style="@style/parent"
                     android:layout_marginTop="@dimen/viewsMargin">
 
                     <EditText
-                        android:id="@+id/et_first_name"
+                        android:id="@+id/et_name"
                         style="@style/modifiedEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

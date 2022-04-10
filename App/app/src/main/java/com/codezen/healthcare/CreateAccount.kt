@@ -17,7 +17,7 @@ class CreateAccount : AppCompatActivity() {
     private lateinit var  auth: FirebaseAuth
 
 
-    lateinit var etFirstName: EditText
+    lateinit var etName: EditText
     lateinit var etEmail: EditText
     lateinit var etPassword: EditText
     lateinit var etRepeatPassword: EditText
@@ -38,7 +38,7 @@ class CreateAccount : AppCompatActivity() {
     }
 
     fun viewInitializations() {
-        etFirstName = findViewById(R.id.et_first_name)
+        etName = findViewById(R.id.et_name)
         etEmail = findViewById(R.id.et_Email)
         etPassword = findViewById(R.id.et_password)
         etRepeatPassword = findViewById(R.id.et_repeat_password)
@@ -53,8 +53,8 @@ class CreateAccount : AppCompatActivity() {
 
     // Checking if the input in form is valid
     fun validateInput(): Boolean {
-        if (etFirstName.text.toString().equals("")) {
-            etFirstName.setError("Please Enter First Name")
+        if (etName.text.toString().equals("")) {
+            etName.setError("Please Enter First Name")
             return false
         }
 
@@ -71,11 +71,11 @@ class CreateAccount : AppCompatActivity() {
             return false
         }
         if (etAddress.text.toString().equals("")) {
-            etFirstName.setError("Please Enter Your Address")
+            etAddress.setError("Please Enter Your Address")
             return false
         }
         if (etPhoneNumber.text.toString().equals("")) {
-            etFirstName.setError("Please Enter Ypur Mobile Number")
+            etPhoneNumber.setError("Please Enter Your Mobile Number")
             return false
         }
 
@@ -112,10 +112,9 @@ class CreateAccount : AppCompatActivity() {
 
             // Input is valid, here send data to server
 
-            val firstName = etFirstName.text.toString()
+            val Name = etName.text.toString()
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
-            val repeatPassword = etRepeatPassword.text.toString()
             val address = etAddress.text.toString()
             val phone = etPhoneNumber.text.toString()
 
@@ -124,7 +123,7 @@ class CreateAccount : AppCompatActivity() {
                     val uid = auth.currentUser!!.uid
 
                     val user = hashMapOf(
-                        "name" to firstName,
+                        "name" to Name,
                         "email" to email,
                         "address" to address,
                         "mobile" to phone,
