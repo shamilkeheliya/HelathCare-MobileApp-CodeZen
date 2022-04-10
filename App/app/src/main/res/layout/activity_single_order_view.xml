@@ -138,6 +138,16 @@
                 android:textSize="20sp"
                 android:textColor="@color/black" />
 
+            <Button
+                android:id="@+id/buttonDeleteOrder"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/main_color"
+                android:onClick="deleteOrder"
+                android:text="Delete Order" />
+
             <TextView
                 android:id="@+id/lbl_amount"
                 style="@style/viewParent.headerText.NoMode"
@@ -225,15 +235,6 @@
                     android:layout_below="@+id/txt_paypal"/>
 
             </RelativeLayout>
-
-            <Button
-                android:id="@+id/buttonDeleteOrder"
-                android:layout_width="142dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/main_color"
-                android:text="Delete Order" />
 
         </LinearLayout>
     </ScrollView>
