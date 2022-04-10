@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -37,7 +38,7 @@ class Orders : AppCompatActivity() {
                 .getColor(R.color.main_color)))
         } catch (e: NullPointerException) {}
 
-        val query = db.collection("orders").orderBy("datetime", Query.Direction.DESCENDING)
+        val query = db.collection("orders").whereEqualTo("customer",FirebaseAuth.getInstance().currentUser!!.uid).orderBy("datetime", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Order>().setQuery(query, Order::class.java)
             .setLifecycleOwner(this).build()
         val adapter = object : FirestoreRecyclerAdapter<Order, OrderViewHolder>(options){
