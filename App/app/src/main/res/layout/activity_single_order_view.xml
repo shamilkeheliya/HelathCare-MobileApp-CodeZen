@@ -71,6 +71,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="10dp"
                         android:text="Time"
+                        android:textSize="20sp"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
@@ -79,12 +80,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="620dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txt_dat"
                         style="@style/viewParent.headerText.NoMode"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
@@ -93,24 +93,25 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/txt_tim"
+                        android:id="@+id/txt_status"
                         style="@style/viewParent.headerText.NoMode"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:text="Time"
+                        android:textSize="30sp"
+                        android:text="Loading.."
                         android:textColor="@color/black" />
-
                 </LinearLayout>
-
             </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="352dp"
-                android:layout_height="620dp"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:id="@+id/pescriptionImage"
+                android:layout_marginVertical="30dp"
+                android:scaleType="centerCrop"
+                android:background="#E5E5E5"/>
 
-            </LinearLayout>
+            
 
         </LinearLayout>
     </ScrollView>
