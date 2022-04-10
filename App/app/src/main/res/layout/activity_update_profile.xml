@@ -56,7 +56,7 @@
                     android:layout_marginTop="@dimen/loginViewsMargin">
 
                     <EditText
-                        android:id="@+id/et_first_name"
+                        android:id="@+id/et_name"
                         style="@style/modifiedEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
