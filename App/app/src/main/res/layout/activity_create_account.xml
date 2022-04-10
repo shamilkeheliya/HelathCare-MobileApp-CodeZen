@@ -125,10 +125,13 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/layout_address"
                     style="@style/parent"
-                    android:layout_marginTop="@dimen/viewsMargin">
+                    android:layout_marginTop="@dimen/viewsMargin"
+                    android:layout_height="100dp">
+
 
                     <EditText
                         android:id="@+id/et_address"
+                        android:height="100dp"
                         style="@style/modifiedEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

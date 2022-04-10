@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/MobileApp-CodeZen/App/app/src/main/res/layout/activity_create_account.xml" value="0.2" />
+        <entry key="..\:/Github/MobileApp-CodeZen/App/app/src/main/res/layout/activity_forget_password.xml" value="0.2" />
+        <entry key="..\:/Github/MobileApp-CodeZen/App/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Github/MobileApp-CodeZen/app/app/src/main/res/layout/landing.xml" value="0.264" />
       </map>
     </option>
