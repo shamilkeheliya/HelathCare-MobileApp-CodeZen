@@ -191,61 +191,35 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="135dp"
                 android:background="#E5E5E5"
                 android:layout_marginTop="10dp">
 
-                <RadioButton
-                    android:id="@+id/radioBtn1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="20dp"/>
+                <Button
+                    android:id="@+id/paypalBtn"
+                    android:layout_width="181dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/main_color"
+                    android:text="Pay with Paypal"
+                    android:layout_centerHorizontal="true"/>
 
                 <TextView
-                    android:id="@+id/txt_COD"
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_toRightOf="@+id/radioBtn1"
-                    android:text="Cash On Delivery"
-                    android:textSize="18sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
-                    android:textColor="@color/black" />
-
-                <RadioButton
-                    android:id="@+id/radioBtn2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@+id/radioBtn1"/>
-
-                <TextView
-                    android:id="@+id/txt_paypal"
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_toRightOf="@+id/radioBtn1"
-                    android:text="Cash On Delivery"
-                    android:textSize="18sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
+                    android:id="@+id/txt_payments"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="If the method of payment is not paypal, Cash on Delivery will be selected automatically."
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/paypalBtn"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/txt_COD"/>
-
-                <RadioButton
-                    android:id="@+id/radioBtn3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@+id/radioBtn2"/>
-
-                <TextView
-                    android:id="@+id/txt_creditCard"
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_toRightOf="@+id/radioBtn1"
-                    android:text="Cash On Delivery"
-                    android:textSize="18sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
-                    android:textColor="@color/black"
-                    android:layout_below="@+id/txt_paypal"/>
+                    android:layout_centerHorizontal="true"/>
 
             </RelativeLayout>
 
