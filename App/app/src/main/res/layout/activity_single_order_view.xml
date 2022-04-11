@@ -190,22 +190,24 @@
                 android:textSize="14sp" />
 
             <RelativeLayout
+                android:id="@+id/layoutPaymentMethord"
                 android:layout_width="match_parent"
-                android:layout_height="135dp"
+                android:layout_height="wrap_content"
                 android:background="#E5E5E5"
                 android:layout_marginTop="10dp">
 
                 <Button
-                    android:id="@+id/paypalBtn"
+                    android:id="@+id/buttonPayPal"
                     android:layout_width="181dp"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="5dp"
                     android:backgroundTint="@color/main_color"
-                    android:text="Pay with Paypal"
-                    android:layout_centerHorizontal="true"/>
+                    android:onClick="payWithPayPal"
+                    android:text="Pay with Paypal" />
 
                 <TextView
                     android:id="@+id/txt_payments"
@@ -216,12 +218,38 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_below="@+id/paypalBtn"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/buttonPayPal"
                     android:textColor="@color/black"
                     android:layout_centerHorizontal="true"/>
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutAboutPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E5E5E5"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/txt_aboutPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Payment Method"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
 
         </LinearLayout>
     </ScrollView>

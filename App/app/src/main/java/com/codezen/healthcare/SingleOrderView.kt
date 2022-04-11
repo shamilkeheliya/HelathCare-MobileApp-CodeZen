@@ -24,6 +24,7 @@ class SingleOrderView : AppCompatActivity() {
     lateinit var orderStatus : String
     lateinit var decription : String
     lateinit var prescriptionURL : String
+    var payment = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,7 @@ class SingleOrderView : AppCompatActivity() {
             orderStatus = it.data!!.getValue("status").toString()
             decription = it.data!!.getValue("description").toString()
             prescriptionURL = it.data!!.getValue("prescription").toString()
+            payment = it.data!!.getValue("paid") as Boolean
 
             txt_date.text = it.data!!.getValue("date").toString()
             txt_time.text = it.data!!.getValue("time").toString()
@@ -84,23 +86,34 @@ class SingleOrderView : AppCompatActivity() {
     }
 
     fun checkStatus(){
+        if(payment){
+            txt_aboutPayment.text = "Your method of payment: PayPal"
+        }else{
+            txt_aboutPayment.text = "Your method of payment: Cash on Delivery"
+        }
+
         if(orderStatus == "Pending"){
             txt_status.setTextColor(Color.parseColor("#dbba00"))
             lbl_amount.setVisibility(View.GONE)
             lbl_rs.setVisibility(View.GONE)
             txt_amount.setVisibility(View.GONE)
+            layoutPaymentMethord.setVisibility(View.GONE)
+            layoutAboutPayment.setVisibility(View.GONE)
         }
         else if(orderStatus == "Packing"){
             txt_status.setTextColor(Color.parseColor("#ffaa00"))
             buttonDeleteOrder.setVisibility(View.GONE)
+            layoutAboutPayment.setVisibility(View.GONE)
         }
         else if(orderStatus == "Delivering"){
             txt_status.setTextColor(Color.parseColor("#0091ff"))
             buttonDeleteOrder.setVisibility(View.GONE)
+            layoutPaymentMethord.setVisibility(View.GONE)
         }
         else if(orderStatus == "Done"){
             txt_status.setTextColor(Color.parseColor("#00ff00"))
             buttonDeleteOrder.setVisibility(View.GONE)
+            layoutPaymentMethord.setVisibility(View.GONE)
         }
         else {
             txt_status.setTextColor(Color.parseColor("#ff0000"))
@@ -108,6 +121,8 @@ class SingleOrderView : AppCompatActivity() {
             lbl_amount.setVisibility(View.GONE)
             lbl_rs.setVisibility(View.GONE)
             txt_amount.setVisibility(View.GONE)
+            layoutPaymentMethord.setVisibility(View.GONE)
+            layoutAboutPayment.setVisibility(View.GONE)
         }
     }
 
@@ -127,6 +142,8 @@ class SingleOrderView : AppCompatActivity() {
             Toast.makeText(applicationContext,"Cannot Delete the Order", Toast.LENGTH_LONG).show()
         }
     }
+
+    fun payWithPayPal(view: View){}
 
     override fun onBackPressed() {
         super.onBackPressed()
