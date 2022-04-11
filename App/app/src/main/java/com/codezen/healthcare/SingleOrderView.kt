@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_update_profile.*
 class SingleOrderView : AppCompatActivity() {
 
     lateinit var documentID : String
-    lateinit var orderStatus : String
+    var orderStatus = "Loading..."
     lateinit var decription : String
     lateinit var prescriptionURL : String
     var payment = false
@@ -51,6 +51,7 @@ class SingleOrderView : AppCompatActivity() {
             txt_description.text = it.data!!.getValue("description").toString()
             txt_amount.text = it.data!!.getValue("amount").toString()
 
+            updatePaymentMethod()
             checkStatus()
             descriptionVisibility()
 
@@ -86,12 +87,6 @@ class SingleOrderView : AppCompatActivity() {
     }
 
     fun checkStatus(){
-        if(payment){
-            txt_aboutPayment.text = "Your method of payment: PayPal"
-        }else{
-            txt_aboutPayment.text = "Your method of payment: Cash on Delivery"
-        }
-
         if(orderStatus == "Pending"){
             txt_status.setTextColor(Color.parseColor("#dbba00"))
             lbl_amount.setVisibility(View.GONE)
@@ -99,6 +94,7 @@ class SingleOrderView : AppCompatActivity() {
             txt_amount.setVisibility(View.GONE)
             layoutPaymentMethord.setVisibility(View.GONE)
             layoutAboutPayment.setVisibility(View.GONE)
+            lbl_paymentMethod.setVisibility(View.GONE)
         }
         else if(orderStatus == "Packing"){
             txt_status.setTextColor(Color.parseColor("#ffaa00"))
@@ -123,6 +119,15 @@ class SingleOrderView : AppCompatActivity() {
             txt_amount.setVisibility(View.GONE)
             layoutPaymentMethord.setVisibility(View.GONE)
             layoutAboutPayment.setVisibility(View.GONE)
+            lbl_paymentMethod.setVisibility(View.GONE)
+        }
+    }
+
+    fun updatePaymentMethod(){
+        if(payment){
+            txt_aboutPayment.text = "Your method of payment: PayPal"
+        }else{
+            txt_aboutPayment.text = "Your method of payment: Cash on Delivery"
         }
     }
 
