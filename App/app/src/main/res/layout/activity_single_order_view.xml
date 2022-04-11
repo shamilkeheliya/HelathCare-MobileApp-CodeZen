@@ -1,16 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".SingleOrderView">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="321dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="Order"
+                    android:textColor="@color/main_color" />
+
+                <ImageView
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="-6dp"
+                    android:src="@mipmap/ic_launcher_round" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#E5E5E5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="620dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_date"
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="Date"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_time"
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="Time"
+                        android:textSize="20sp"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="620dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="Status:"
+                        android:textColor="@color/main_color"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txt_status"
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:textSize="30sp"
+                        android:text="Loading.."
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Prescription"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:id="@+id/pescriptionImage"
+                android:scaleType="centerCrop"
+                android:background="#E5E5E5"/>
+
+            <TextView
+                android:id="@+id/lbl_description"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Description"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentLeft="true"
+                android:text="Loading.."
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/buttonDeleteOrder"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/main_color"
+                android:onClick="deleteOrder"
+                android:text="Delete Order" />
+
+            <TextView
+                android:id="@+id/lbl_amount"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Amount"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lbl_rs"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:text="Rs."
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/txt_amount"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="33dp"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/lbl_paymentMethod"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Payment Method"
+                android:textColor="@color/main_color"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:background="#E5E5E5"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/paypalBtn"
+                    android:layout_width="181dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/main_color"
+                    android:text="Pay with Paypal"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/txt_payments"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="If the method of payment is not paypal, Cash on Delivery will be selected automatically."
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/paypalBtn"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
