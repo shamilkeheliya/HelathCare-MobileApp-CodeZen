@@ -148,7 +148,17 @@ class SingleOrderView : AppCompatActivity() {
         }
     }
 
-    fun payWithPayPal(view: View){}
+    fun payWithPayPal(view: View){
+        //Add payment method here
+
+        // if payment is success
+        FirebaseFirestore.getInstance().collection("orders").document(documentID).update("paid", true).addOnSuccessListener {
+            payment = true
+            Toast.makeText(applicationContext,"Updated Successful", Toast.LENGTH_LONG).show()
+        }.addOnFailureListener{
+            Toast.makeText(applicationContext,"Cannot Update", Toast.LENGTH_LONG).show()
+        }
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()
