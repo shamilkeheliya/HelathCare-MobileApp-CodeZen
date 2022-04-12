@@ -1,6 +1,7 @@
 package com.codezen.healthcare
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -15,8 +16,13 @@ import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.paypal.android.sdk.payments.PayPalConfiguration
+import com.paypal.android.sdk.payments.PayPalPayment
+import com.paypal.android.sdk.payments.PayPalService
+import com.paypal.android.sdk.payments.PaymentActivity
 import kotlinx.android.synthetic.main.activity_single_order_view.*
 import kotlinx.android.synthetic.main.activity_update_profile.*
+import java.math.BigDecimal
 
 class SingleOrderView : AppCompatActivity() {
 
@@ -25,6 +31,8 @@ class SingleOrderView : AppCompatActivity() {
     lateinit var decription : String
     lateinit var prescriptionURL : String
     var payment = false
+    var config:PayPalConfiguration? = null
+    var client_id: String = "ARKL7p7RWGWudGaKC4KIjPhAd46IzO8Jl61jfgiEIMKxO3-JirB0te6vR-v_QFk9mYz1bAq00AJ9rqze"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +68,25 @@ class SingleOrderView : AppCompatActivity() {
         }.addOnFailureListener{
             Toast.makeText(applicationContext,"Cannot Get Data from Server", Toast.LENGTH_LONG).show()
         }
+
+        config = PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(client_id)
+        var i = Intent(this,PayPalService::class.java)
+        i.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
+        startService(i)
+
+        buttonPayPal.setOnClickListener {
+            var amount = lbl_amount.text.toString().toDouble()
+            var payment = PayPalPayment(BigDecimal.valueOf(amount), "LKR", "Healthcare Pharmacy App", PayPalPayment.PAYMENT_INTENT_SALE)
+            var intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
+            intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment)
+            startActivityForResult(intent, 123)
+        }
+    }
+
+    override fun onDestroy() {
+        stopService(Intent(this, PayPalService::class.java))
+        super.onDestroy()
     }
 
     @SuppressLint("StaticFieldLeak")

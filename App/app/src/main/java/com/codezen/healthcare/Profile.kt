@@ -15,6 +15,8 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
+var client_id: String = "ARKL7p7RWGWudGaKC4KIjPhAd46IzO8Jl61jfgiEIMKxO3-JirB0te6vR-v_QFk9mYz1bAq00AJ9rqze"
+
 class Profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
