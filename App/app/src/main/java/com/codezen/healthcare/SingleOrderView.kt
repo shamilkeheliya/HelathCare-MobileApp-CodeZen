@@ -23,6 +23,7 @@ import com.paypal.android.sdk.payments.PaymentActivity
 import kotlinx.android.synthetic.main.activity_single_order_view.*
 import kotlinx.android.synthetic.main.activity_update_profile.*
 import java.math.BigDecimal
+import java.text.NumberFormat
 
 class SingleOrderView : AppCompatActivity() {
 
@@ -69,19 +70,7 @@ class SingleOrderView : AppCompatActivity() {
             Toast.makeText(applicationContext,"Cannot Get Data from Server", Toast.LENGTH_LONG).show()
         }
 
-        config = PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(client_id)
-        var i = Intent(this,PayPalService::class.java)
-        i.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
-        startService(i)
 
-        buttonPayPal.setOnClickListener {
-            var amount = lbl_amount.text.toString().toDouble()
-            var payment = PayPalPayment(BigDecimal.valueOf(amount), "LKR", "Healthcare Pharmacy App", PayPalPayment.PAYMENT_INTENT_SALE)
-            var intent = Intent(this, PaymentActivity::class.java)
-            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
-            intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment)
-            startActivityForResult(intent, 123)
-        }
     }
 
     override fun onDestroy() {
@@ -177,6 +166,20 @@ class SingleOrderView : AppCompatActivity() {
 
     fun payWithPayPal(view: View){
         //Add payment method here
+        config = PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(client_id)
+        var i = Intent(this,PayPalService::class.java)
+        i.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
+        startService(i)
+
+        buttonPayPal.setOnClickListener {
+            var amount = txt_amount.text.toString().toDouble()
+            var payment = PayPalPayment(BigDecimal.valueOf(amount), "USD", "Healthcare Pharmacy App", PayPalPayment.PAYMENT_INTENT_SALE)
+            var intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
+            intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment)
+            startActivityForResult(intent, 123)
+
+        }
 
         // if payment is success
         FirebaseFirestore.getInstance().collection("orders").document(documentID).update("paid", true).addOnSuccessListener {
