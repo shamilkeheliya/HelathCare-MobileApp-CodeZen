@@ -115,7 +115,12 @@ class SingleOrderView : AppCompatActivity() {
         else if(orderStatus == "Packing"){
             txt_status.setTextColor(Color.parseColor("#ffaa00"))
             buttonDeleteOrder.setVisibility(View.GONE)
-            layoutAboutPayment.setVisibility(View.GONE)
+
+            if(payment){
+                layoutPaymentMethord.setVisibility(View.GONE)
+            }else{
+                layoutAboutPayment.setVisibility(View.GONE)
+            }
         }
         else if(orderStatus == "Delivering"){
             txt_status.setTextColor(Color.parseColor("#0091ff"))
@@ -141,7 +146,7 @@ class SingleOrderView : AppCompatActivity() {
 
     fun updatePaymentMethod(){
         if(payment){
-            txt_aboutPayment.text = "Your method of payment: PayPal"
+            txt_aboutPayment.text = "Your payment done with PayPal"
         }else{
             txt_aboutPayment.text = "Your method of payment: Cash on Delivery"
         }
@@ -165,29 +170,17 @@ class SingleOrderView : AppCompatActivity() {
     }
 
     fun payWithPayPal(view: View){
-        //Add payment method here
         config = PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(client_id)
         var i = Intent(this,PayPalService::class.java)
         i.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
         startService(i)
-
-        buttonPayPal.setOnClickListener {
-            var amount = txt_amount.text.toString().toDouble()
-            var payment = PayPalPayment(BigDecimal.valueOf(amount), "USD", "Healthcare Pharmacy App", PayPalPayment.PAYMENT_INTENT_SALE)
-            var intent = Intent(this, PaymentActivity::class.java)
-            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
-            intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment)
-            startActivityForResult(intent, 123)
-
-        }
-
-        // if payment is success
-        FirebaseFirestore.getInstance().collection("orders").document(documentID).update("paid", true).addOnSuccessListener {
-            payment = true
-            Toast.makeText(applicationContext,"Updated Successful", Toast.LENGTH_LONG).show()
-        }.addOnFailureListener{
-            Toast.makeText(applicationContext,"Cannot Update", Toast.LENGTH_LONG).show()
-        }
+        var amount = txt_amount.text.toString().toDouble()
+        var paypal = PayPalPayment(BigDecimal.valueOf(amount), "USD", "Health Care Pharmacy", PayPalPayment.PAYMENT_INTENT_SALE)
+        var intent = Intent(this, PaymentActivity::class.java)
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config)
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, paypal)
+        startActivityForResult(intent, 123)
+        FirebaseFirestore.getInstance().collection("orders").document(documentID).update("paid", true)
     }
 
     override fun onBackPressed() {
