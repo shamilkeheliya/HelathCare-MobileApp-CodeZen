@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -52,4 +51,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.13.2'
 }
