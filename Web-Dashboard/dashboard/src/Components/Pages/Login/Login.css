@@ -1,0 +1,19 @@
+.main-container {
+    height: 81vh;
+}
+
+.logo-in {
+    height: 30vh;
+}
+
+.center
+{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text {
+    text-align: center;
+}
