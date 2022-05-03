@@ -1,0 +1,91 @@
+.singleordercont
+{
+    min-height: 465px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: rgb(224, 224, 224) 0px 10px 36px 0px, rgb(182, 240, 106) 0px 0px 0px 1px;
+}
+
+.orderrow
+{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.ordertbrow
+{
+    padding-right: 30px !important;
+}
+
+.rows
+{
+    padding-bottom: 30px;
+}
+
+.headertext
+{
+    color: rgb(124, 183, 48);
+}
+
+.colheader
+{
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.orderstatus
+{
+    margin-top: 20px;
+    background-color: rgb(124, 183, 48);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.statusdd
+{
+    border: none;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.updatebtn
+{
+    background-color: rgb(124, 183, 48) !important;
+    color: white;
+    min-width: 200px;
+}
+
+.deletebtn
+{
+    background-color: red !important;
+    color: white;
+    max-width: 200px !important;
+    margin-left: 10px;
+}
+
+.middlerow
+{
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.imagecont
+{
+    margin-top: 20px !important;
+    height: 250px;
+    box-shadow: rgba(97, 241, 61, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    border-radius: 7px;
+    width: 300px !important;
+    margin-bottom: 30px;
+}
+
+.desctext
+{
+    width: 400px !important;
+}

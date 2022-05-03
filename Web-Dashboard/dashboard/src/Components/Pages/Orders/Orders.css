@@ -1,0 +1,34 @@
+.searcharea
+{
+    max-width: 300px;
+}
+
+.searchcont
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.searchbtn
+{
+    background-color: rgb(124, 183, 48) !important;
+}
+
+.datatablecont
+{
+    min-height: 428px;
+    padding-bottom: 50px;
+}
+
+.tablehead
+{
+    background-color: rgb(124, 183, 48);
+    color: white;
+}
+
+.tablebtn
+{
+    background-color: rgb(124, 183, 48) !important;
+    color: white;
+}
