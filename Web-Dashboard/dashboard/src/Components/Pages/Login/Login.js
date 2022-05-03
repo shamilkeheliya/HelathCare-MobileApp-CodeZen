@@ -46,7 +46,7 @@ function Login() {
           <div className="center">
             <img src={Logo} className="logo-in" />
           </div>
-          <h2 className="login-text">Welcome to the Healthcare <br />Admnistrator Dashboard</h2>
+          <h2 className="login-text">Welcome to the Healthcare <br />Administrator Dashboard</h2>
         </MDBCol>
 
       </MDBRow>
