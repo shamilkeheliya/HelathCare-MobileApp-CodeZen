@@ -1,8 +1,10 @@
 import React from 'react';
 import { MDBContainer, MDBBtn, MDBRow, MDBCol, MDBDropdownLink, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from 'mdb-react-ui-kit';
 import './SingleOrder.css';
+import { useParams} from 'react-router-dom';
 
-function SingleOrder() {
+function SingleOrder(props) {
+  const {id} = useParams();
   return (
     <MDBContainer className="singleordercont">
       <MDBRow className="orderrow">
@@ -11,6 +13,10 @@ function SingleOrder() {
             <h5 className="headertext">Order Status</h5>
             <div>
               <table border="0" className="orderstatus">
+                <tr>
+                  <td className="ordertbrow colheader">Order ID</td>
+                  <td className="ordertbrow">{id}</td>
+                </tr>
                 <tr>
                   <td className="ordertbrow colheader">Date</td>
                   <td className="ordertbrow">xxxx-xx-xx</td>
