@@ -7,7 +7,6 @@
 {
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 50px;
 }
 
 .searchbtn
@@ -30,5 +29,5 @@
 .tablebtn
 {
     background-color: rgb(124, 183, 48) !important;
-    color: white;
+    color: white !important;
 }
