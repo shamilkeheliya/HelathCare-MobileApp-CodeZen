@@ -1,13 +1,15 @@
 .main-container {
     height: 81vh;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 .logo-in {
     height: 30vh;
+    padding-bottom: 50px;
 }
 
-.center
-{
+.center {
     text-align: center;
     display: flex;
     justify-content: center;
@@ -16,4 +18,42 @@
 
 .login-text {
     text-align: center;
+    text-shadow: -1px -1px rgb(68, 67, 67), 1px 1px rgb(201, 200, 200);
+    color: rgb(68, 67, 67);
+    letter-spacing: 2px;
+}
+
+.form-ccontrol {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 20px;
+    min-width: 370px;
+    min-height: 40px;
+    padding-left: 20px;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: none;
+}
+
+.logindiv {
+    text-align: center;
+    color: rgb(124, 183, 48);
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: rgb(201, 201, 199) 0px 3px 8px;
+    height: fit-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.create-button {
+    margin-top: 25px;
+    background-color: rgb(124, 183, 48) !important;
+    color: white !important;
+    min-width: 370px;
+    min-height: 40px;
 }
