@@ -19,11 +19,37 @@ import {
 } from 'mdb-react-ui-kit';
 import { NavLink } from 'react-router-dom';
 import { CgProfile } from 'react-icons/cg';
+import firebaseAuth from "firebase/auth";
+import firebase from 'firebase/app';
+import { Navigate } from "react-router-dom";
+import firebaseApp from '../../../firebaseauth';
+
 
 function NavBar() {
+
+    //const [loggedout, setLoggedOut] = useState(false);
+
+    const logout = () => {
+        //const auth = firebase.getAuth();
+        firebase.auth().signOut().then(() => {
+            window.history.go(-1);
+            //setLoggedOut(true);
+        }).catch((error) => {
+            window.confirm("An error occured. Please try again!");
+            //setLoggedOut(false);
+        });
+    }
+
     const [showNavText, setShowNavText] = useState(false);
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
+
+            {/*
+                loggedout
+                    ? <Navigate to={{ pathname: '/' }} />
+                    : <></> */
+            }
+
             <MDBContainer>
                 <MDBNavbarBrand href='#' ><img src={Logo} className='logo' /></MDBNavbarBrand>
                 <MDBNavbarToggler
@@ -51,7 +77,7 @@ function NavBar() {
                         <MDBDropdownToggle color='light'><span className='navbar-text'>< CgProfile /></span></MDBDropdownToggle>
                         <MDBDropdownMenu>
                             <MDBDropdownItem>
-                                <MDBDropdownLink href="#">Log Out</MDBDropdownLink>
+                                <MDBDropdownLink onClick={logout}>Log Out</MDBDropdownLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>
