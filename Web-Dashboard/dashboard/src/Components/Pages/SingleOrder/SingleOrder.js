@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MDBContainer, MDBBtn, MDBRow, MDBCol, MDBDropdownLink, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from 'mdb-react-ui-kit';
 import './SingleOrder.css';
-import { useParams} from 'react-router-dom';
+import { Navigate, useParams} from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
@@ -10,18 +10,48 @@ function SingleOrder(props) {
   const {id} = useParams();
 
 const [singleOrder, setSingleOrder] = useState([]);
+const [newStatus, setNewStatus] = useState('');
+const [oldStatus, setOldStatus] = useState('');
+
+const [orderDeleted, setOrderDeleted] = useState(false);
 const ref = firebase.firestore().collection("orders").doc(id); 
+
+const newStatusHandler = event => {
+  setNewStatus(event.target.value);
+}
 
 useEffect(() => {
   ref.get().then(DocumentSnapshot => {
     const docData = DocumentSnapshot.data();
     setSingleOrder(docData);
+    setOldStatus(docData.status);
 })
 },[]);
+
+const updateStatus = (e) => {
+  e.preventDefault();
+  const statusNew = firebase.firestore().collection("orders");
+  statusNew.doc(id).update({
+    status: newStatus
+  }).then(setOldStatus(newStatus))
+}
+
+const deleteOrder = () => {
+  const geOrderColec = firebase.firestore().collection("orders");
+  geOrderColec.doc(id).delete().then(setOrderDeleted(true))
+  
+}
 
 
   return (
     <MDBContainer className="singleordercont">
+
+{
+  
+  orderDeleted
+          ? <Navigate to={{ pathname: '/orders' }} />
+          : <></>
+      }
 
       {
         console.log(singleOrder.amount)
@@ -30,6 +60,7 @@ useEffect(() => {
         <MDBCol>
           <MDBRow className="rows">
             <h5 className="headertext">Order Status</h5>
+            <form onSubmit={updateStatus}>
             <div>
               <table border="0" className="orderstatus">
                 <tr>
@@ -46,12 +77,12 @@ useEffect(() => {
                 </tr>
                 <tr>
                   <td className="ordertbrow colheader">Payment Status</td>
-                  <td className="ordertbrow">{singleOrder.status}</td>
+                  <td className="ordertbrow">{oldStatus}</td>
                 </tr>
                 <tr>
                   <td className="ordertbrow colheader">New Status</td>
                   <td className="ordertbrow">
-                    <select name="status" className="statusdd">
+                    <select name="status" className="statusdd" onChange={newStatusHandler}>
                       <option value="pending">Pending</option>
                       <option value="confirmed">Confirmed</option>
                       <option value="delivering">Delivering</option>
@@ -60,8 +91,9 @@ useEffect(() => {
                   </td>
                 </tr>
               </table>
-              <MDBBtn className="updatebtn">Update Order</MDBBtn>
+              <MDBBtn className="updatebtn" type='submit'>Update Order</MDBBtn>
             </div>
+            </form>
           </MDBRow>
           <MDBRow className='middlerow'>
             <div>
@@ -70,7 +102,7 @@ useEffect(() => {
             </div>
           </MDBRow>
           <MDBRow>
-            <MDBBtn className="deletebtn">Delete Order</MDBBtn>
+            <MDBBtn className="deletebtn" onClick={deleteOrder}>Delete Order</MDBBtn>
           </MDBRow>
         </MDBCol>
         <MDBCol>

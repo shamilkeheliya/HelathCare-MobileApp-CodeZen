@@ -18,16 +18,16 @@ function Orders() {
   const [orderList, setOrderList] = useState([]);
 
 
-  useEffect(() => {
-    var user = firebase.auth().currentUser;
-    console.log(user);
+  // useEffect(() => {
+  //   var user = firebase.auth().currentUser;
+  //   console.log(user);
 
-    if (user) {
-      //setIsLogged(true);
-    } else {
-      window.history.go(-1);
-    }
-  }, []);
+  //   if (user) {
+  //     //setIsLogged(true);
+  //   } else {
+  //     window.history.go(-1);
+  //   }
+  // }, []);
 
   useEffect(() => {
     fetchOrderList();
