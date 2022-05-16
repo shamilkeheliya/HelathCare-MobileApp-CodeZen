@@ -92,7 +92,7 @@ class NewOrder : AppCompatActivity() {
                             "prescription" to prescriptionURL,
                             "description" to textDescription.text.toString(),
                             "datetime" to Timestamp.now(),
-                            "date" to "${Calendar.getInstance().get(Calendar.YEAR)}-${Calendar.getInstance().get(Calendar.MONTH)}-${Calendar.getInstance().get(Calendar.DAY_OF_MONTH)}",
+                            "date" to "${Calendar.getInstance().get(Calendar.YEAR)}-${Calendar.getInstance().get(Calendar.MONTH)+1}-${Calendar.getInstance().get(Calendar.DAY_OF_MONTH)}",
                             "time" to "${Calendar.getInstance().get(Calendar.HOUR_OF_DAY)}:${Calendar.getInstance().get(Calendar.MINUTE)}",
                             "status" to "Pending",
                             "amount" to "",
