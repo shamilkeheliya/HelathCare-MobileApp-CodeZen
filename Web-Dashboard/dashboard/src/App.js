@@ -1,22 +1,24 @@
 import './App.css';
+import NavBar from './Components/Common/NavBar/NavBar';
+import Footer from './Components/Common/Footer/Footer';
+import Orders from './Components/Pages/Orders/Orders';
+import Login from './Components/Pages/Login/Login';
+import SingleOrder from './Components/Pages/SingleOrder/SingleOrder';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="orders/:id/singleorder" element={<SingleOrder/>} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
