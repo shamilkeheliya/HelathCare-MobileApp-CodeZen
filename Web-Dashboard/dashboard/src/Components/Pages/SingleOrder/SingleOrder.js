@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBContainer, MDBBtn, MDBRow, MDBCol, MDBDropdownLink, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle } from 'mdb-react-ui-kit';
 import './SingleOrder.css';
 import { useParams} from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
 
 function SingleOrder(props) {
   const {id} = useParams();
+
+const [singleOrder, setSingleOrder] = useState([]);
+const ref = firebase.firestore().collection("orders").doc(id); 
+
+useEffect(() => {
+  ref.get().then(DocumentSnapshot => {
+    const docData = DocumentSnapshot.data();
+    setSingleOrder(docData);
+})
+},[]);
+
+
   return (
     <MDBContainer className="singleordercont">
+
+      {
+        console.log(singleOrder.amount)
+      }
       <MDBRow className="orderrow">
         <MDBCol>
           <MDBRow className="rows">
@@ -19,18 +38,18 @@ function SingleOrder(props) {
                 </tr>
                 <tr>
                   <td className="ordertbrow colheader">Date</td>
-                  <td className="ordertbrow">xxxx-xx-xx</td>
+                  <td className="ordertbrow">{singleOrder.date}</td>
                 </tr>
                 <tr>
                   <td className="ordertbrow colheader">Time</td>
-                  <td className="ordertbrow">hh:mm</td>
+                  <td className="ordertbrow">{singleOrder.time}</td>
                 </tr>
                 <tr>
-                  <td className="ordertbrow colheader">Payment Method</td>
-                  <td className="ordertbrow">Cash</td>
+                  <td className="ordertbrow colheader">Payment Status</td>
+                  <td className="ordertbrow">{singleOrder.status}</td>
                 </tr>
                 <tr>
-                  <td className="ordertbrow colheader">Status</td>
+                  <td className="ordertbrow colheader">New Status</td>
                   <td className="ordertbrow">
                     <select name="status" className="statusdd">
                       <option value="pending">Pending</option>
@@ -47,7 +66,7 @@ function SingleOrder(props) {
           <MDBRow className='middlerow'>
             <div>
               <h5 className="headertext">Total Amount</h5>
-              <p>LKR <b>3400.00</b></p>
+              <p>LKR <b>{singleOrder.amount}</b></p>
             </div>
           </MDBRow>
           <MDBRow>
@@ -58,12 +77,12 @@ function SingleOrder(props) {
           <MDBRow>
             <h5 className="headertext">Prescription</h5>
             <div className="imagecont">
-              Image
+              <img className='img-fluid' src={singleOrder.prescription} alt='prescription'/>
             </div>
           </MDBRow>
           <MDBRow>
             <h5 className="headertext">Description</h5>
-            <div className="desctext">Line 47:13:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text</div>
+            <div className="desctext">{singleOrder.description}</div>
           </MDBRow>
         </MDBCol>
       </MDBRow>

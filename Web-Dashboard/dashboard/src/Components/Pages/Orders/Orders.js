@@ -7,10 +7,16 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { Navigate } from "react-router-dom";
 import firebaseApp from '../../../firebaseauth';
+import userEvent from '@testing-library/user-event';
+import 'firebase/firestore';
 
 function Orders() {
 
+  const db = firebase.firestore();
+
   //const [islogged, setIsLogged] = useState(false);
+  const [orderList, setOrderList] = useState([]);
+
 
   useEffect(() => {
     var user = firebase.auth().currentUser;
@@ -20,69 +26,33 @@ function Orders() {
       //setIsLogged(true);
     } else {
       window.history.go(-1);
-    } 
-  }, []); 
-
-  const DUMMY_DATA = [
-    {
-      "id": "1",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
-    },
-    {
-      "id": "2",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
-    },
-    {
-      "id": "3",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
-    },
-    {
-      "id": "4",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
-    },
-    {
-      "id": "5",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
-    },
-    {
-      "id": "6",
-      "customer": "Nishu",
-      "Prescription": "Image",
-      "Description": "Try the new cross-platform PowerShell https://aka.ms/pscore6, Try the new cross-platform PowerShell https://aka.ms/pscore6",
-      "Price": "1230.00",
-      "Status": "Completed"
     }
-  ]
+  }, []);
+
+  useEffect(() => {
+    fetchOrderList();
+  }, []);
+
+  const fetchOrderList = async() => {
+    db.collection("orders").get().then((querySnapshot) => {
+             
+      // Loop through the data and store
+      // it in array to display
+      setOrderList(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})));
+
+  })
+  }
+
 
   return (
     <MDBContainer>
 
-{
+      {
   /*
         islogged
           ? <Navigate to={{ pathname: '/orders' }} />
           : <></>
-    */  } 
+    */  }
 
       <MDBContainer className="searchcont">
         <form className='d-flex input-group w-auto'>
@@ -104,14 +74,14 @@ function Orders() {
           </MDBTableHead>
           <MDBTableBody>
             {
-              DUMMY_DATA.map((i) => {
+              orderList.map((i, key) => {
                 return (
-                  <tr>
+                  <tr key={key}>
                     <th scope='row'>{i.id}</th>
                     <td>{i.customer}</td>
-                    <td>{i.Description}</td>
-                    <td>{i.Price}</td>
-                    <td>{i.Status}</td>
+                    <td>{i.description}</td>
+                    <td>{i.amount}</td>
+                    <td>{i.status}</td>
                     <td><NavLink className="btn tablebtn" to={`${i.id}/singleorder`}>View</NavLink></td>
                   </tr>
                 )
